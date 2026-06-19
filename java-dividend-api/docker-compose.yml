@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: dividend-agent-postgres
+    environment:
+      POSTGRES_DB: dividend_agent
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - dividend_agent_pgdata:/var/lib/postgresql/data
+
+volumes:
+  dividend_agent_pgdata:
