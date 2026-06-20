@@ -1,17 +1,21 @@
 spring:
   application:
     name: java-dividend-api
+
   datasource:
     url: jdbc:postgresql://localhost:5432/dividend_agent
     username: postgres
     password: postgres
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
   jpa:
     hibernate:
       ddl-auto: validate
     show-sql: true
 
-  flyway:
-    enabled: true
-    locations: classpath:db/migration
 server:
   port: 8080
